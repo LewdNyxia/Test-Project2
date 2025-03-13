@@ -71,14 +71,14 @@ theme_override_constants/margin_right = 5
 [node name="tabbed" type="TabContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-current_tab = 1
+current_tab = 0
 
 [node name="Character Info" type="RichTextLabel" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Settings" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -97,6 +97,15 @@ text = "Fullscreen"
 
 [node name="CheckButton" type="CheckButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings/Settings"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings/Settings"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="ItemList" type="ItemList" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings/Settings"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
