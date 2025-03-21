@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1nt4mc48p2q8"]
+[gd_scene load_steps=3 format=3 uid="uid://c1nt4mc48p2q8"]
 
 [ext_resource type="PackedScene" uid="uid://5lhdpntnpicg" path="res://Main.tscn" id="1_0cyf1"]
+[ext_resource type="Script" uid="uid://de65xewgd0k3x" path="res://playfield.gd" id="1_3emq6"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -11,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_3emq6")
 
 [node name="UI" parent="." instance=ExtResource("1_0cyf1")]
 layout_mode = 1
