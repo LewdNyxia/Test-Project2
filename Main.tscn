@@ -245,3 +245,7 @@ size_flags_vertical = 3
 script = ExtResource("3_r0du0")
 
 [connection signal="toggled" from="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings/Settings/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/MarginContainer/GridContainer/North" to="." method="_on_north_pressed"]
+[connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/MarginContainer/GridContainer/West" to="." method="_on_west_pressed"]
+[connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/MarginContainer/GridContainer/South" to="." method="_on_south_pressed"]
+[connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/MarginContainer/GridContainer/East" to="." method="_on_east_pressed"]
