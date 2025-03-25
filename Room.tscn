@@ -1,11 +1,14 @@
-[gd_scene format=3 uid="uid://bosmwt06o5o0"]
+[gd_scene load_steps=2 format=3 uid="uid://bosmwt06o5o0"]
 
-[node name="House" type="PanelContainer"]
+[ext_resource type="Script" uid="uid://c0w3ea3ugvurs" path="res://room.gd" id="1_gw2vq"]
+
+[node name="House" type="PanelContainer" groups=["rooms"]]
 custom_minimum_size = Vector2(200, 200)
 offset_left = -369.0
 offset_top = -444.0
 offset_right = -329.0
 offset_bottom = -394.0
+script = ExtResource("1_gw2vq")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

@@ -17,9 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Dialogic="res://addons/dialogic/Core/DialogicGameHandler.gd"
 SaveSystem="*res://addons/save_system/save_system.gd"
-Playfield="res://playfield.gd"
+Playfield="*res://playfield.gd"
+Room="*res://room.gd"
 
 [dialogic]
 
@@ -65,6 +66,10 @@ project/assembly_name="Test Project2"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/save_system/plugin.cfg")
+
+[global_group]
+
+rooms=""
 
 [input]
 
