@@ -1,16 +1,22 @@
 extends Control
 
-
+@onready var player = get_parent()
+@onready var StatText = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Stats/RichTextLabel
 @onready var room_manager = $RoomManager
 @onready var playfield = $"/root/Playfield"
 @onready var label = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer/MainTextPort
 @onready var House = room_manager.get_child(0)
-var HID = 0
-var VID = 0
-var N = 0
-var S = 0
-var W = 0
-var E = 0
+var statText
+
+func _process(delta: float) -> void:
+	player.pHP = player.pMHP
+	statText ="[color=red]Health: " + str(player.pHP) +"/" + str(player.pMHP) + "[/color]" \
+	+ "\nStrength: " + str(player.pSTR) + "\nAgility: " +str(player.pAGI) \
+	+ "\nBody: " +str(player.pBOD) + "\nPersonality: " +str(player.pPER) \
+	+ "\nIntelligence: " +str(player.pINT) + "\nSpeed: " +str(player.pSPE)
+	StatText.text = statText
+
+
 func _ready() -> void:
 	initialize(House)
 
@@ -33,6 +39,9 @@ func changeRoom(new_room: GameRoom):
 
 func updateText(text):
 	label.text = text
+func addText(text):
+	label.text += text
+
 
 func _on_north_pressed() -> void:
 	if current_room.exits.has("north"):

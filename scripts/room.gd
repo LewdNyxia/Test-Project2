@@ -1,11 +1,16 @@
+@tool
 extends PanelContainer
 class_name GameRoom
 
 @onready var Main = get_node("/root/playfield/UI")
-@export var room_name = "House"
-@export var room_description = "A house"
-@export var room_idH = 0
-@export var room_idV = 0
+@export var room_name = "House":
+	set( name ) :
+		room_name = name
+		$MarginContainer/Rows/RoomName.text = name
+@export var room_description = "A house":
+	set( desc ) :
+		room_description = desc
+		$MarginContainer/Rows/RoomDescription.text = desc
 
 @onready var exits: Dictionary = {}
 

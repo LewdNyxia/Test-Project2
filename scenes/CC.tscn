@@ -1,0 +1,447 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxtevr6i2y7or"]
+
+[ext_resource type="Script" uid="uid://cplx8wo7g2ig6" path="res://scripts/main_text_port.gd" id="1_03qof"]
+[ext_resource type="Script" uid="uid://du8b8glk5jxyi" path="res://scripts/cc.gd" id="1_gd3aj"]
+
+[node name="Cc" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_gd3aj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0.219608, 0, 1)
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.611765, 0, 1)
+
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.51
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0, 0.364706, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="tabbed" type="TabContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+current_tab = 2
+
+[node name="Character Info" type="RichTextLabel" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Settings" type="MarginContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 1
+
+[node name="Settings" type="GridContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings"]
+layout_mode = 2
+columns = 2
+
+[node name="Panel" type="Label" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings/Settings"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen"
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings/Settings"]
+layout_mode = 2
+
+[node name="Stats" type="Control" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+color = Color(0, 0.364706, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="MainTextPort" type="RichTextLabel" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.15
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "test"
+script = ExtResource("1_03qof")
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+color = Color(0, 0.364706, 0, 1)
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+current_tab = 0
+
+[node name="Attributes" type="MarginContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes"]
+layout_mode = 2
+
+[node name="Points" type="HBoxContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/Points"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Points:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/Points"]
+layout_mode = 2
+size_flags_horizontal = 10
+horizontal_alignment = 1
+
+[node name="STR" type="HBoxContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/STR"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Strength: "
+
+[node name="NEGSTR" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/STR"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "-1"
+
+[node name="STRButton2" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/STR"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "+1"
+
+[node name="AGI" type="HBoxContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/AGI"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Agility: "
+
+[node name="NEGAGI" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/AGI"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "-1"
+
+[node name="AGIButton2" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/AGI"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "+1"
+
+[node name="BOD" type="HBoxContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/BOD"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Body:"
+
+[node name="NEGBOD" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/BOD"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "-1"
+
+[node name="BODButton2" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/BOD"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "+1"
+
+[node name="PER" type="HBoxContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/PER"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Personality:"
+
+[node name="NEGPER" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/PER"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "-1"
+
+[node name="PERButton2" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/PER"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "+1"
+
+[node name="INT" type="HBoxContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/INT"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Intelligence:"
+
+[node name="NEGINT" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/INT"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "-1"
+
+[node name="INTButton2" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/INT"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "+1"
+
+[node name="SPE" type="HBoxContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/SPE"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Speed:"
+
+[node name="NEGSPE" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/SPE"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "-1"
+
+[node name="SPEButton" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/SPE"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "+1"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/icon_hover_pressed_color = Color(0, 0.945098, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0.188235, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Continue?"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="Button" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="North" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "North"
+
+[node name="Button3" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button4" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button5" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="West" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "West"
+
+[node name="South" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "South"
+
+[node name="East" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "East"
+
+[node name="Button9" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button10" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button11" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button12" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button13" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button14" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button15" type="Button" parent="MarginContainer2/BoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/STR/NEGSTR" to="." method="_on_negstr_pressed"]
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/STR/STRButton2" to="." method="_on_str_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/AGI/NEGAGI" to="." method="_on_negagi_pressed"]
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/AGI/AGIButton2" to="." method="_on_agi_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/BOD/NEGBOD" to="." method="_on_negbod_pressed"]
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/BOD/BODButton2" to="." method="_on_bod_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/PER/NEGPER" to="." method="_on_negper_pressed"]
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/PER/PERButton2" to="." method="_on_per_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/INT/NEGINT" to="." method="_on_negint_pressed"]
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/INT/INTButton2" to="." method="_on_int_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/SPE/NEGSPE" to="." method="_on_negspe_pressed"]
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/SPE/SPEButton" to="." method="_on_spe_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Attributes/VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]

@@ -19,8 +19,8 @@ config/icon="res://icon.svg"
 
 Dialogic="res://addons/dialogic/Core/DialogicGameHandler.gd"
 SaveSystem="*res://addons/save_system/save_system.gd"
-Playfield="*res://playfield.gd"
-Room="*res://room.gd"
+Room="*res://scripts/room.gd"
+Player="*res://scripts/player.gd"
 
 [dialogic]
 

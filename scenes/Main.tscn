@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://5lhdpntnpicg"]
 
-[ext_resource type="Script" uid="uid://ct31x464emrif" path="res://main.gd" id="1_glv2v"]
-[ext_resource type="Script" uid="uid://cplx8wo7g2ig6" path="res://main_text_port.gd" id="2_cm0pq"]
-[ext_resource type="PackedScene" uid="uid://bosmwt06o5o0" path="res://Room.tscn" id="2_uu6xs"]
-[ext_resource type="Script" uid="uid://b7kqy0ug2a7ut" path="res://room_manager.gd" id="3_cm0pq"]
+[ext_resource type="Script" uid="uid://ct31x464emrif" path="res://scripts/main.gd" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://cplx8wo7g2ig6" path="res://scripts/main_text_port.gd" id="2_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://bosmwt06o5o0" path="res://scenes/Room.tscn" id="2_uu6xs"]
+[ext_resource type="Script" uid="uid://b7kqy0ug2a7ut" path="res://scripts/room_manager.gd" id="3_cm0pq"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -74,7 +74,7 @@ theme_override_constants/margin_right = 5
 [node name="tabbed" type="TabContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-current_tab = 1
+current_tab = 2
 
 [node name="Character Info" type="RichTextLabel" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed"]
 visible = false
@@ -82,6 +82,7 @@ layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Settings" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -100,6 +101,19 @@ text = "Fullscreen"
 
 [node name="CheckButton" type="CheckButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings/Settings"]
 layout_mode = 2
+
+[node name="Stats" type="Control" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -243,13 +257,17 @@ size_flags_vertical = 3
 script = ExtResource("3_cm0pq")
 
 [node name="House" parent="RoomManager" instance=ExtResource("2_uu6xs")]
+offset_left = -367.0
+offset_top = -439.0
+offset_right = -167.0
+offset_bottom = -239.0
 room_description = "a house"
 
 [node name="Outside" parent="RoomManager" instance=ExtResource("2_uu6xs")]
 offset_left = -154.0
-offset_top = -441.0
+offset_top = -439.0
 offset_right = 46.0
-offset_bottom = -241.0
+offset_bottom = -239.0
 room_name = "outside"
 room_description = "a forest."
 
