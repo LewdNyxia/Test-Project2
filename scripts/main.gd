@@ -7,6 +7,7 @@ extends Control
 @onready var label = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer/MainTextPort
 @onready var House = room_manager.get_child(0)
 var statText
+var itemlist = []
 
 func _process(delta: float) -> void:
 	player.pHP = player.pMHP
@@ -32,8 +33,12 @@ func initialize(starting_room):
 func changeRoom(new_room: GameRoom):
 	current_room = new_room
 	var exit_string = PackedStringArray(new_room.exits.keys())
+	for item in new_room.items:
+		itemlist.append(item.get("name"))
+	var items = PackedStringArray(itemlist)
 	var strings = "You are now in: " +new_room.room_name + ". It is " +new_room.room_description + \
-	"\nYou can go " + ",".join(exit_string)
+	"\nYou can go " + ",".join(exit_string) +\
+	"\n Items in the room: " + ", ".join(items)
 	updateText(strings)
 	pass
 

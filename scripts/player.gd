@@ -7,6 +7,8 @@ var pPER = 0
 var pINT = 0
 var pSPE = 0
 
+var Inventory = []
+
 var pHP = 0
 var pMHP = 0
 
@@ -65,6 +67,9 @@ func _process(delta: float) -> void:
 	pBOW = mBOW + pAGI
 	pXB = mXB + pAGI
 	pTHR = mTHR + pAGI
+
+func addWeapon():
+	pass
 
 func changeAttribute(attribute, amount):
 	match attribute:

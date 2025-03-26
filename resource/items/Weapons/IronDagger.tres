@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://coyu25ig5sjfc"]
+
+[ext_resource type="Script" uid="uid://cex5gjumwhqyg" path="res://scripts/itemScripts/WeaponItem.gd" id="1_oswsw"]
+
+[resource]
+script = ExtResource("1_oswsw")
+name = "Iron Dagger"
+description = "An Iron Dagger."
+Weapon_Type = 1
+accuracy = 2
+minDamage = 1
+maxDamage = 2
+reach = 0

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://by6ltxe2c1n2d"]
+
+[ext_resource type="Script" uid="uid://dkbk5056q5n7m" path="res://scripts/itemScripts/MagicItem.gd" id="1_lrost"]
+
+[resource]
+script = ExtResource("1_lrost")
+name = ""
+description = ""
+Magic_Type = 0

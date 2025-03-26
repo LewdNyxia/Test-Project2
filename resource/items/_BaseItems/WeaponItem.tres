@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://6i3o8o5t55wf"]
+
+[ext_resource type="Script" uid="uid://cex5gjumwhqyg" path="res://scripts/itemScripts/WeaponItem.gd" id="1_dpv8h"]
+
+[resource]
+script = ExtResource("1_dpv8h")
+name = ""
+description = ""
+Weapon_Type = 0
+accuracy = 0
+minDamage = 0
+maxDamage = 0
+reach = 0

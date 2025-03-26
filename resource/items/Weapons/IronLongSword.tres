@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://cufwer171dhu1"]
+
+[ext_resource type="Script" uid="uid://cex5gjumwhqyg" path="res://scripts/itemScripts/WeaponItem.gd" id="1_olmbo"]
+
+[resource]
+script = ExtResource("1_olmbo")
+name = "Iron Longsword"
+description = "An iron longsword."
+Weapon_Type = 1
+accuracy = 1
+minDamage = 1
+maxDamage = 5
+reach = 1

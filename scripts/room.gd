@@ -11,8 +11,8 @@ class_name GameRoom
 	set( desc ) :
 		room_description = desc
 		$MarginContainer/Rows/RoomDescription.text = desc
-
 @onready var exits: Dictionary = {}
+var items: Array = []
 
 func connectExit(dir: String, room: GameRoom):
 	match dir:
@@ -28,6 +28,16 @@ func connectExit(dir: String, room: GameRoom):
 		"south":
 			exits[dir] = room
 			room.exits["north"] = self
+	pass
+	
+func add_weapon(weapon: WeaponData):
+	items.append(weapon)
+	pass
+func add_magic(magic: MagicData):
+	items.append(magic)
+	pass
+func add_armor(armor: ArmorData):
+	items.append(armor)
 	pass
 
 func _process(delta: float) -> void:
