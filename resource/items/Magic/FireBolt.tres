@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MagicData" load_steps=2 format=3 uid="uid://ctchib2d21y0"]
+
+[ext_resource type="Script" uid="uid://dkbk5056q5n7m" path="res://scripts/itemScripts/MagicItem.gd" id="1_paty4"]
+
+[resource]
+script = ExtResource("1_paty4")
+name = "Firebolt"
+description = ""
+Magic_Type = 1
+Magic_Difficulty = 0
+magnitude = 2

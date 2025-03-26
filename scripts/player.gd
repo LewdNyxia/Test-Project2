@@ -68,7 +68,8 @@ func _process(delta: float) -> void:
 	pXB = mXB + pAGI
 	pTHR = mTHR + pAGI
 
-func addWeapon():
+func addToInventory(item):
+	Inventory.append(item)
 	pass
 
 func changeAttribute(attribute, amount):

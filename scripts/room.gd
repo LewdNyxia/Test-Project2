@@ -13,6 +13,9 @@ class_name GameRoom
 		$MarginContainer/Rows/RoomDescription.text = desc
 @onready var exits: Dictionary = {}
 var items: Array = []
+@export var weapons: Array = []
+@export var armor: Array = []
+@export var magic: Array = []
 
 func connectExit(dir: String, room: GameRoom):
 	match dir:
@@ -44,4 +47,9 @@ func _process(delta: float) -> void:
 	pass
 	
 func _ready() -> void:
-	pass
+	for i in weapons:
+		add_weapon(load(i))
+	for i in armor:
+		add_armor(load(i))
+	for i in magic:
+		add_magic(load(i))

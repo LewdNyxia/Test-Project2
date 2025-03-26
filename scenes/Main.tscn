@@ -153,10 +153,19 @@ layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer"]
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "test"
+current_tab = 0
+
+[node name="Items" type="GridContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer"]
+layout_mode = 2
+columns = 2
+metadata/_tab_index = 0
+
+[node name="Characters" type="GridContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -262,6 +271,9 @@ offset_top = -439.0
 offset_right = -167.0
 offset_bottom = -239.0
 room_description = "a house"
+weapons = ["res://resource/items/Weapons/IronDagger.tres", "res://resource/items/Weapons/IronLongSword.tres"]
+armor = ["res://resource/items/Armor/IronChest.tres"]
+magic = ["res://resource/items/Magic/FireBolt.tres"]
 
 [node name="Outside" parent="RoomManager" instance=ExtResource("2_uu6xs")]
 offset_left = -154.0
@@ -270,6 +282,9 @@ offset_right = 46.0
 offset_bottom = -239.0
 room_name = "outside"
 room_description = "a forest."
+weapons = []
+armor = []
+magic = []
 
 [connection signal="toggled" from="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings/Settings/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/MarginContainer/GridContainer/North" to="." method="_on_north_pressed"]
