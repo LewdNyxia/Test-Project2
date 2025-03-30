@@ -10,9 +10,6 @@ extends Control
 @onready var CharacterPanel = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Characters
 var statText
 var itemlist = []
-var i: int = 0
-var i2: int = 1
-var i3: int = -1
 
 func _process(delta: float) -> void:
 	player.pHP = player.pMHP
@@ -42,33 +39,25 @@ func initialize(starting_room):
 func changeRoom(new_room: GameRoom):
 	current_room = new_room
 	var exit_string = PackedStringArray(new_room.exits.keys())
-	i = 0
-	i2 = 1
+	var i = 0
 	for a in itemlist:
 		ItemPanel.get_child(i).queue_free()
-		ItemPanel.get_child(i2).queue_free()
+		ItemPanel.get_child(i+1).queue_free()
 		i += 2
-		i2 += 2
 	itemlist.clear()
 	i = 0
-	i2 = 1
-	i3 = -1
 	for item in new_room.items:
-		i3 += 1
-		itemlist.append(item.get("name"))
-		ItemPanel.add_child(Label.new())
-		ItemPanel.add_child(Button.new())
-		if ItemPanel.get_child(i) is Label:
-			ItemPanel.get_child(i).text = str(itemlist.get(i3))
-			ItemPanel.get_child(i).name = str(i)
-			i += 2
-		if ItemPanel.get_child(i2) is Button:
-			ItemPanel.get_child(i2).text = "Take item?"
-			ItemPanel.get_child(i2).name = str(i)
-			i -= 2
-			ItemPanel.get_child(i2).button_down.connect(_button_clicked.bind(i))
-			i += 2
-			i2 += 2
+		var item_name = item.get("name")
+		itemlist.append(item_name)
+		var label_widget = Label.new()
+		ItemPanel.add_child(label_widget)
+		label_widget.text = str(item_name)
+		var button_widget = InventoryButton.new()
+		ItemPanel.add_child(button_widget)
+		button_widget.text = "Take item?"
+		button_widget.item_name = str(item_name)
+		button_widget.button_down.connect(_button_clicked.bind(item_name))
+		i += 2
 			
 
 	var items = PackedStringArray(itemlist)
@@ -78,13 +67,47 @@ func changeRoom(new_room: GameRoom):
 	updateText(strings)
 	
 	pass
-func _button_clicked(button_index):
-	var item = itemlist.get(button_index)
-	player.Inventory.append(item)
-	itemlist.insert(button_index, 0)
-	ItemPanel.get_child(button_index+1).queue_free()
-	ItemPanel.get_child(button_index).queue_free()
+func _button_clicked(item_name):
+	player.Inventory.append(item_name)
+	var index = findItem(item_name)
+	if index != -1:
+		itemlist.remove_at(index)
+		var label = findLabel(item_name)
+		if label:
+			label.queue_free()
+		var button = findInventoryButton(item_name)
+		if button:
+			button.queue_free()
+	else:
+		print("Could not find Item")
 	print(player.Inventory)
+
+func findItem(in_item) -> int:
+	var i = -1
+	for item in itemlist:
+		i += 1
+		if item == in_item:
+			return i
+	return i
+
+func findLabel(in_name):
+	for widget in ItemPanel.get_children():
+		if  widget is Label:
+			if widget.text == in_name:
+				return widget
+	
+	return null
+	
+	
+func findInventoryButton(in_item):
+	for widget in ItemPanel.get_children():
+		if  widget is InventoryButton:
+			if widget.item_name == in_item:
+				return widget
+	
+	return null
+
+
 
 func updateText(text):
 	label.text = text
