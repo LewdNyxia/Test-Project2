@@ -1,17 +1,18 @@
 extends Control
 
 @onready var player = get_parent()
-@onready var StatText = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Stats/RichTextLabel
+@onready var StatText = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Stats/RichTextLabel
 @onready var room_manager = $RoomManager
-@onready var playfield = $"/root/Playfield"
-@onready var label = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer/MainTextPort
+@onready var playfield = $"../"
+@onready var labeL = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer/MainTextPort
 @onready var House = room_manager.get_child(0)
-@onready var ItemPanel = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Items
-@onready var CharacterPanel = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Characters
+@onready var ItemPanel = $"MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Room Contents/Items"
+@onready var CharacterPanel = $"MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Room Contents/Characters"
+@onready var backpack = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Backpack
 var statText
 var itemlist = []
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	player.pHP = player.pMHP
 	statText ="[color=red]Health: " + str(player.pHP) +"/" + str(player.pMHP) + "[/color]" \
 	+ "\nStrength: " + str(player.pSTR) + "\nAgility: " +str(player.pAGI) \
@@ -56,7 +57,7 @@ func changeRoom(new_room: GameRoom):
 		ItemPanel.add_child(button_widget)
 		button_widget.text = "Take item?"
 		button_widget.item_name = str(item_name)
-		button_widget.button_down.connect(_button_clicked.bind(item_name))
+		button_widget.button_down.connect(_button_clicked.bind(item_name, item))
 		i += 2
 			
 
@@ -68,8 +69,8 @@ func changeRoom(new_room: GameRoom):
 	
 	pass
 	
-func _button_clicked(item_name):
-	player.Inventory.append(item_name)
+func _button_clicked(item_name, item):
+	player.Inventory.append(item)
 	var index = findItem(item_name)
 	if index != -1:
 		itemlist.remove_at(index)
@@ -82,6 +83,7 @@ func _button_clicked(item_name):
 	else:
 		print("Could not find Item")
 	print(player.Inventory)
+	backpack.update_backpack()
 
 func findItem(in_item) -> int:
 	var i = -1
@@ -112,9 +114,9 @@ func findInventoryButton(in_item):
 
 
 func updateText(text):
-	label.text = text
+	labeL.text = text
 func addText(text):
-	label.text += text
+	labeL.text += text
 
 
 func _on_north_pressed() -> void:

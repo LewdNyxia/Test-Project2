@@ -1,4 +1,6 @@
 extends Node
+@onready var inventoryPanel = $UI/MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Backpack
+
 var Pname = ""
 var pSTR = 0
 var pAGI = 0
@@ -51,11 +53,12 @@ var mTHR = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_tree().physics_frame
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pMHP = 10 + (pSTR + fSTR * 2)
 	pMMP = pINT + fINT * 1.5
 	pLB = mLB + pAGI
@@ -67,6 +70,8 @@ func _process(delta: float) -> void:
 	pBOW = mBOW + pAGI
 	pXB = mXB + pAGI
 	pTHR = mTHR + pAGI
+	
+
 
 func addToInventory(item):
 	Inventory.append(item)

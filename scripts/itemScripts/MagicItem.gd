@@ -3,10 +3,10 @@ extends Resource
 class_name MagicData
 
 
-enum Type {HEAD, CHEST, LLEG, RLEG, LFOOT, RFOOT, LARM, RARM, LHAND, RHAND, RING1, RING2, AMULET, CLOTHESTOP, CLOTHESBOTTOM, UNDERWEARTOP, UNDERWEARBOTTOM, WEAPON, SHIELD, MAGIC}
-enum WType {NONE, LONGSWORD, SHORTSWORD, AXE, BLUNT, POLEARM, UNARMED, BOW, CROSSBOW}
 enum MType {NONE, ELEMENTAL, CONJURATION, MUTATION, ALCHEMY, ENCHANTING}
-
+enum hands {lEFT, RIGHT, BOTH}
+var Type = null
+var WType = null
 
 @export var name: String
 @export_multiline var description: String
@@ -17,5 +17,5 @@ enum MType {NONE, ELEMENTAL, CONJURATION, MUTATION, ALCHEMY, ENCHANTING}
 @export var magnitude = 0
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

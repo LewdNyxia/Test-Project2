@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://5lhdpntnpicg"]
+[gd_scene load_steps=10 format=3 uid="uid://5lhdpntnpicg"]
 
 [ext_resource type="Script" uid="uid://ct31x464emrif" path="res://scripts/main.gd" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://cplx8wo7g2ig6" path="res://scripts/main_text_port.gd" id="2_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://bosmwt06o5o0" path="res://scenes/Room.tscn" id="2_uu6xs"]
+[ext_resource type="Script" uid="uid://q84vbmfeeg2v" path="res://scenes/backpack.gd" id="2_vcsgt"]
+[ext_resource type="Script" uid="uid://c3vqm6cvoqgfg" path="res://scenes/equipped.gd" id="3_c01mt"]
 [ext_resource type="Script" uid="uid://b7kqy0ug2a7ut" path="res://scripts/room_manager.gd" id="3_cm0pq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rarhs"]
+
+[sub_resource type="Theme" id="Theme_vcsgt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vcsgt"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -66,47 +74,31 @@ theme_override_constants/margin_right = 10
 layout_mode = 2
 color = Color(0, 0.364706, 0, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="tabbed" type="TabContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer"]
+[node name="tabbed" type="TabContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 current_tab = 2
 
-[node name="Character Info" type="RichTextLabel" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed"]
+[node name="Character Info" type="RichTextLabel" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Settings" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed"]
+[node name="Stats" type="Control" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed"]
 visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
 metadata/_tab_index = 1
 
-[node name="Settings" type="GridContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings"]
-layout_mode = 2
-columns = 2
-
-[node name="Panel" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings/Settings"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Fullscreen"
-
-[node name="CheckButton" type="CheckButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings/Settings"]
-layout_mode = 2
-
-[node name="Stats" type="Control" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed"]
-layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Stats"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Stats"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,6 +106,234 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
+
+[node name="Inventory" type="TabContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rarhs")
+current_tab = 1
+metadata/_tab_index = 2
+
+[node name="Backpack" type="VBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory"]
+visible = false
+layout_mode = 2
+script = ExtResource("2_vcsgt")
+metadata/_tab_index = 0
+
+[node name="Equipped" type="VBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory"]
+layout_mode = 2
+theme = SubResource("Theme_vcsgt")
+script = ExtResource("3_c01mt")
+metadata/_tab_index = 1
+
+[node name="equipment" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="armors" type="VBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer"]
+layout_mode = 2
+
+[node name="Head" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/Head"]
+layout_mode = 2
+text = "Head:"
+
+[node name="helmetOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/Head" groups=["equipbutton"]]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Chest" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/Chest"]
+layout_mode = 2
+text = "Chest:"
+
+[node name="chestOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/Chest" groups=["equipbutton"]]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="arms" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/arms"]
+layout_mode = 2
+text = "Arms:"
+
+[node name="armsOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/arms" groups=["equipbutton"]]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="legs" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/legs"]
+layout_mode = 2
+text = "Legs:"
+
+[node name="legsOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/legs" groups=["equipbutton"]]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Gloves" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/Gloves"]
+layout_mode = 2
+text = "Gloves:"
+
+[node name="glovesOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/Gloves" groups=["equipbutton"]]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="boots" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/boots"]
+layout_mode = 2
+text = "Boots:"
+
+[node name="bootsOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/boots" groups=["equipbutton"]]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="clothing" type="VBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2"]
+layout_mode = 2
+
+[node name="Shirt" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/Shirt"]
+layout_mode = 2
+text = "Shirt:"
+
+[node name="shirtOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/Shirt" groups=["equipbutton"]]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="bra" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/bra"]
+layout_mode = 2
+text = "Bra:"
+
+[node name="helmetOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/bra" groups=["equipbutton"]]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="pants" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/pants"]
+layout_mode = 2
+text = "Pants:"
+
+[node name="pantsOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/pants" groups=["equipbutton"]]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="underwear" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/underwear"]
+layout_mode = 2
+text = "Underwear:"
+
+[node name="underwearOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/underwear" groups=["equipbutton"]]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Ring1" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/Ring1"]
+layout_mode = 2
+text = "Ring 1:"
+
+[node name="ring1Option" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/Ring1" groups=["equipbutton"]]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Ring2" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/Ring2"]
+layout_mode = 2
+text = "Ring 2:"
+
+[node name="ring2Option" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/Ring2" groups=["equipbutton"]]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="weapons" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+
+[node name="leftweapon" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/weapons"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/weapons/leftweapon"]
+layout_mode = 2
+text = "Left Hand:"
+
+[node name="leftButton" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/weapons/leftweapon" groups=["equipbutton"]]
+layout_mode = 2
+
+[node name="rightweapon" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/weapons"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/weapons/rightweapon"]
+layout_mode = 2
+text = "Right Hand:"
+
+[node name="rightButton" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/weapons/rightweapon" groups=["equipbutton"]]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = -11.5
+offset_right = 47.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Future map!"
+horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -157,15 +377,42 @@ theme_override_constants/margin_right = 5
 layout_mode = 2
 current_tab = 0
 
-[node name="Items" type="GridContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer"]
+[node name="Room Contents" type="TabContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vcsgt")
+current_tab = 0
+metadata/_tab_index = 0
+
+[node name="Items" type="GridContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Room Contents"]
 layout_mode = 2
 columns = 2
 metadata/_tab_index = 0
 
-[node name="Characters" type="GridContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer"]
+[node name="Characters" type="GridContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Room Contents"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="Settings" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 1
+
+[node name="Settings" type="GridContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Settings"]
+layout_mode = 2
+columns = 2
+
+[node name="Panel" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Settings/Settings"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen"
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Settings/Settings"]
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -283,7 +530,7 @@ offset_bottom = -239.0
 room_name = "outside"
 room_description = "a forest."
 
-[connection signal="toggled" from="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings/Settings/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Settings/Settings/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/MarginContainer/GridContainer/North" to="." method="_on_north_pressed"]
 [connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/MarginContainer/GridContainer/West" to="." method="_on_west_pressed"]
 [connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/MarginContainer/GridContainer/South" to="." method="_on_south_pressed"]

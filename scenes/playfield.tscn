@@ -21,3 +21,5 @@ layout_mode = 1
 
 [node name="Cc" parent="." instance=ExtResource("3_i74au")]
 layout_mode = 1
+
+[editable path="UI"]

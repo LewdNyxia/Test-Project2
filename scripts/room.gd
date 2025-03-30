@@ -36,14 +36,14 @@ func connectExit(dir: String, room: GameRoom):
 func add_weapon(weapon: WeaponData):
 	items.append(weapon)
 	pass
-func add_magic(magic: MagicData):
-	items.append(magic)
+func add_magic(magic2: MagicData):
+	items.append(magic2)
 	pass
-func add_armor(armor: ArmorData):
-	items.append(armor)
+func add_armor(armor2: ArmorData):
+	items.append(armor2)
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func _ready() -> void:

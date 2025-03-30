@@ -70,6 +70,7 @@ enabled=PackedStringArray("res://addons/save_system/plugin.cfg")
 [global_group]
 
 rooms=""
+equipbutton=""
 
 [input]
 

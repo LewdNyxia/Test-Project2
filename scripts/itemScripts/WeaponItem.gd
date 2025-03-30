@@ -3,11 +3,11 @@ extends Resource
 class_name WeaponData
 
 
-enum Type {HEAD, CHEST, LLEG, RLEG, LFOOT, RFOOT, LARM, RARM, LHAND, RHAND, RING1, RING2, AMULET, CLOTHESTOP, CLOTHESBOTTOM, UNDERWEARTOP, UNDERWEARBOTTOM, WEAPON, SHIELD, MAGIC}
 enum WType {NONE, LONGSWORD, SHORTSWORD, AXE, BLUNT, POLEARM, UNARMED, BOW, CROSSBOW}
-enum MType {NONE, ELEMENTAL, CONJURATION, MUTATION, ALCHEMY, ENCHANTING}
-
-
+enum areashape {LINE, CIRCLE, CONE}
+enum hands {lEFT, RIGHT, BOTH}
+var Type = null
+var MType = null
 @export var name: String
 @export_multiline var description: String
 @export var texture: Texture2D
@@ -17,7 +17,10 @@ enum MType {NONE, ELEMENTAL, CONJURATION, MUTATION, ALCHEMY, ENCHANTING}
 @export var minDamage = 0
 @export var maxDamage = 0
 @export var reach = 0
+@export var area = 0
+@export var area_shape: areashape
 
 
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	pass
