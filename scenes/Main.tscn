@@ -282,9 +282,6 @@ offset_right = 46.0
 offset_bottom = -239.0
 room_name = "outside"
 room_description = "a forest."
-weapons = []
-armor = []
-magic = []
 
 [connection signal="toggled" from="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/tabbed/Settings/Settings/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/MarginContainer/GridContainer/North" to="." method="_on_north_pressed"]

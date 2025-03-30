@@ -60,11 +60,14 @@ func changeRoom(new_room: GameRoom):
 		ItemPanel.add_child(Button.new())
 		if ItemPanel.get_child(i) is Label:
 			ItemPanel.get_child(i).text = str(itemlist.get(i3))
+			ItemPanel.get_child(i).name = str(i)
 			i += 2
 		if ItemPanel.get_child(i2) is Button:
 			ItemPanel.get_child(i2).text = "Take item?"
-			ItemPanel.get_child(i2).name = str(i3)
-			print(ItemPanel.get_child(i2).name)
+			ItemPanel.get_child(i2).name = str(i)
+			i -= 2
+			ItemPanel.get_child(i2).button_down.connect(_button_clicked.bind(i))
+			i += 2
 			i2 += 2
 			
 
@@ -75,7 +78,13 @@ func changeRoom(new_room: GameRoom):
 	updateText(strings)
 	
 	pass
-
+func _button_clicked(button_index):
+	var item = itemlist.get(button_index)
+	player.Inventory.append(item)
+	itemlist.insert(button_index, 0)
+	ItemPanel.get_child(button_index+1).queue_free()
+	ItemPanel.get_child(button_index).queue_free()
+	print(player.Inventory)
 
 func updateText(text):
 	label.text = text
