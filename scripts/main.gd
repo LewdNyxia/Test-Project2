@@ -67,6 +67,7 @@ func changeRoom(new_room: GameRoom):
 	updateText(strings)
 	
 	pass
+	
 func _button_clicked(item_name):
 	player.Inventory.append(item_name)
 	var index = findItem(item_name)
@@ -90,6 +91,7 @@ func findItem(in_item) -> int:
 			return i
 	return i
 
+# might be able to get away with combining FindLabel and FindInventoryButton but :shrug:
 func findLabel(in_name):
 	for widget in ItemPanel.get_children():
 		if  widget is Label:
