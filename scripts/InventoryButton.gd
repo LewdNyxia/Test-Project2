@@ -1,6 +1,6 @@
-class_name buttons
+class_name InventoryButton
 extends Button
-var identifier
+var item_name: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
