@@ -5,7 +5,7 @@ class_name MagicData
 
 enum MType {NONE, ELEMENTAL, CONJURATION, MUTATION, ALCHEMY, ENCHANTING}
 enum hands {lEFT, RIGHT, BOTH}
-var Type = null
+var equip_slot = null
 var WType = null
 
 @export var name: String

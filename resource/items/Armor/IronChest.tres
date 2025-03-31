@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MagicData" load_steps=2 format=3 uid="uid://c7u6muxix5d2h"]
+[gd_resource type="Resource" script_class="ArmorData" load_steps=2 format=3 uid="uid://c7u6muxix5d2h"]
 
 [ext_resource type="Script" uid="uid://gpt8h23uql4o" path="res://scripts/itemScripts/ArmorItem.gd" id="1_u3wpt"]
 
@@ -6,7 +6,7 @@
 script = ExtResource("1_u3wpt")
 name = "Iron Chestplate"
 description = "An tron chestplate"
-type = 1
+equip_slot = 1
 AC = 2
 DR = null
 tier = 1

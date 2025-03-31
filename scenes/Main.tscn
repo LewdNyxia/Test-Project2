@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://5lhdpntnpicg"]
+[gd_scene load_steps=11 format=3 uid="uid://5lhdpntnpicg"]
 
 [ext_resource type="Script" uid="uid://ct31x464emrif" path="res://scripts/main.gd" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://cplx8wo7g2ig6" path="res://scripts/main_text_port.gd" id="2_cm0pq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://q84vbmfeeg2v" path="res://scenes/backpack.gd" id="2_vcsgt"]
 [ext_resource type="Script" uid="uid://c3vqm6cvoqgfg" path="res://scenes/equipped.gd" id="3_c01mt"]
 [ext_resource type="Script" uid="uid://b7kqy0ug2a7ut" path="res://scripts/room_manager.gd" id="3_cm0pq"]
+[ext_resource type="Script" uid="uid://2f80lt63ckyi" path="res://scripts/Buttons/EquipButton.gd" id="4_nxtc6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rarhs"]
 
@@ -146,9 +147,12 @@ layout_mode = 2
 layout_mode = 2
 text = "Head:"
 
-[node name="helmetOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/Head" groups=["equipbutton"]]
+[node name="helmetOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/Head" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_nxtc6")
+UI = NodePath("../../../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="Chest" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors"]
 layout_mode = 2
@@ -157,9 +161,13 @@ layout_mode = 2
 layout_mode = 2
 text = "Chest:"
 
-[node name="chestOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/Chest" groups=["equipbutton"]]
+[node name="chestOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/Chest" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_nxtc6")
+item_slot = 1
+UI = NodePath("../../../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="arms" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors"]
 layout_mode = 2
@@ -168,9 +176,12 @@ layout_mode = 2
 layout_mode = 2
 text = "Arms:"
 
-[node name="armsOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/arms" groups=["equipbutton"]]
+[node name="armsOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/arms" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_nxtc6")
+UI = NodePath("../../../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="legs" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors"]
 layout_mode = 2
@@ -179,9 +190,13 @@ layout_mode = 2
 layout_mode = 2
 text = "Legs:"
 
-[node name="legsOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/legs" groups=["equipbutton"]]
+[node name="legsOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/legs" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_nxtc6")
+item_slot = 2
+UI = NodePath("../../../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="Gloves" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors"]
 layout_mode = 2
@@ -190,9 +205,13 @@ layout_mode = 2
 layout_mode = 2
 text = "Gloves:"
 
-[node name="glovesOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/Gloves" groups=["equipbutton"]]
+[node name="glovesOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/Gloves" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_nxtc6")
+item_slot = 5
+UI = NodePath("../../../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="boots" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors"]
 layout_mode = 2
@@ -201,9 +220,13 @@ layout_mode = 2
 layout_mode = 2
 text = "Boots:"
 
-[node name="bootsOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/boots" groups=["equipbutton"]]
+[node name="bootsOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer/armors/boots" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_nxtc6")
+item_slot = 3
+UI = NodePath("../../../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment"]
 layout_mode = 2
@@ -223,9 +246,13 @@ layout_mode = 2
 layout_mode = 2
 text = "Shirt:"
 
-[node name="shirtOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/Shirt" groups=["equipbutton"]]
+[node name="shirtOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/Shirt" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_nxtc6")
+item_slot = 9
+UI = NodePath("../../../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="bra" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing"]
 layout_mode = 2
@@ -234,9 +261,13 @@ layout_mode = 2
 layout_mode = 2
 text = "Bra:"
 
-[node name="helmetOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/bra" groups=["equipbutton"]]
+[node name="braOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/bra" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_nxtc6")
+item_slot = 11
+UI = NodePath("../../../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="pants" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing"]
 layout_mode = 2
@@ -245,9 +276,13 @@ layout_mode = 2
 layout_mode = 2
 text = "Pants:"
 
-[node name="pantsOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/pants" groups=["equipbutton"]]
+[node name="pantsOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/pants" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_nxtc6")
+item_slot = 10
+UI = NodePath("../../../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="underwear" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing"]
 layout_mode = 2
@@ -256,9 +291,13 @@ layout_mode = 2
 layout_mode = 2
 text = "Underwear:"
 
-[node name="underwearOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/underwear" groups=["equipbutton"]]
+[node name="underwearOption" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/underwear" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_nxtc6")
+item_slot = 12
+UI = NodePath("../../../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="Ring1" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing"]
 layout_mode = 2
@@ -267,9 +306,13 @@ layout_mode = 2
 layout_mode = 2
 text = "Ring 1:"
 
-[node name="ring1Option" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/Ring1" groups=["equipbutton"]]
+[node name="ring1Option" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/Ring1" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_nxtc6")
+item_slot = 6
+UI = NodePath("../../../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="Ring2" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing"]
 layout_mode = 2
@@ -278,9 +321,13 @@ layout_mode = 2
 layout_mode = 2
 text = "Ring 2:"
 
-[node name="ring2Option" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/Ring2" groups=["equipbutton"]]
+[node name="ring2Option" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/equipment/MarginContainer2/clothing/Ring2" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_nxtc6")
+item_slot = 7
+UI = NodePath("../../../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="weapons" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped"]
 layout_mode = 2
@@ -294,8 +341,12 @@ layout_mode = 2
 layout_mode = 2
 text = "Left Hand:"
 
-[node name="leftButton" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/weapons/leftweapon" groups=["equipbutton"]]
+[node name="leftButton" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/weapons/leftweapon" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
+script = ExtResource("4_nxtc6")
+item_slot = 13
+UI = NodePath("../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="rightweapon" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/weapons"]
 layout_mode = 2
@@ -304,8 +355,12 @@ layout_mode = 2
 layout_mode = 2
 text = "Right Hand:"
 
-[node name="rightButton" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/weapons/rightweapon" groups=["equipbutton"]]
+[node name="rightButton" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped/weapons/rightweapon" node_paths=PackedStringArray("UI") groups=["equipbutton"]]
 layout_mode = 2
+script = ExtResource("4_nxtc6")
+item_slot = 13
+UI = NodePath("../../../../../../../../../../../../..")
+metadata/_custom_type_script = ExtResource("4_nxtc6")
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

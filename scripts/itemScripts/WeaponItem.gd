@@ -6,7 +6,7 @@ class_name WeaponData
 enum WType {NONE, LONGSWORD, SHORTSWORD, AXE, BLUNT, POLEARM, UNARMED, BOW, CROSSBOW}
 enum areashape {LINE, CIRCLE, CONE}
 enum hands {lEFT, RIGHT, BOTH}
-var Type = null
+var equip_slot = ArmorData.EEquipSlot.WEAPON
 var MType = null
 @export var name: String
 @export_multiline var description: String

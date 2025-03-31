@@ -9,6 +9,8 @@ extends Control
 @onready var ItemPanel = $"MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Room Contents/Items"
 @onready var CharacterPanel = $"MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer3/MarginContainer/TabContainer/Room Contents/Characters"
 @onready var backpack = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Backpack
+#hate that im doing it thiswaybutohwell
+@onready var EquipmentPanel = $MarginContainer/BoxContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/tabbed/Inventory/Equipped
 var statText
 var itemlist = []
 
@@ -66,6 +68,7 @@ func changeRoom(new_room: GameRoom):
 	"\nYou can go " + ",".join(exit_string) +\
 	"\n Items in the room: " + ", ".join(items)
 	updateText(strings)
+	EquipmentPanel.refreshEquipmentButtons()
 	
 	pass
 	
@@ -84,6 +87,7 @@ func _button_clicked(item_name, item):
 		print("Could not find Item")
 	print(player.Inventory)
 	backpack.update_backpack()
+	EquipmentPanel.refreshEquipmentButtons()
 
 func findItem(in_item) -> int:
 	var i = -1

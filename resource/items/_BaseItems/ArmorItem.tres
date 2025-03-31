@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://2eftm3qamayd"]
+[gd_resource type="Resource" script_class="ArmorData" load_steps=2 format=3 uid="uid://2eftm3qamayd"]
 
 [ext_resource type="Script" uid="uid://gpt8h23uql4o" path="res://scripts/itemScripts/ArmorItem.gd" id="1_auj5b"]
 
@@ -7,5 +7,6 @@ script = ExtResource("1_auj5b")
 name = ""
 description = ""
 type = 0
-Weapon_Type = 0
-Magic_Type = 0
+AC = 0
+DR = 0
+tier = 0
